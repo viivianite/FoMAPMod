@@ -1,0 +1,31 @@
+[farm_introduction]
+	given_items = [
+		{ item_id = "hoe_worn" },
+		{ item_id = "net_worn" },
+		{ item_id = "fishing_rod_worn"},
+		{ item_id = "watering_can_worn"},
+	]
+	object_removals = [{ location = "farm", object = "tree_pine_special" }]
+    mana_to_set = 12
+	heart_level_changes = [{ npc_id = "caldarus", heart_level = 1 }]
+
+[the_unusual_tree_pt_1.requirements]
+	or = []
+
+[the_unusual_tree_pt_2.requirements]
+    or = []
+
+[adeline_quest_board]
+	end_position = "previous"
+
+[full_restore.requirements]
+    or = []
+
+[post_water_seal.requirements]
+    or = []
+
+[post_earth_seal.requirements]
+    or = []
+
+[break_fire_seal.requirements]
+    or = []

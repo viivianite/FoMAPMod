@@ -1,0 +1,13 @@
+[general]
+	[[general.categories]]
+        MOMIidentify = { icon = "spr_ui_store_category_icon_tools" }
+        constant_stock = [
+            "unknown_item",
+            "unknown_item",
+            "unknown_item",
+            "unknown_item",
+            "unknown_item",
+            { item = "unknown_item", requirements = { repaired_general_store = true} },
+        ]
+        MOMIaction = "replace"
+

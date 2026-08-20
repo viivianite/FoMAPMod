@@ -1,0 +1,5 @@
+[do_a_bro_a_favor]
+    rewards = [{ renown = 20}]
+
+[somethings_bugging_me]
+    rewards = [{ renown = 20 }]

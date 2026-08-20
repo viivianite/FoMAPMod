@@ -1,0 +1,14 @@
+[unlocking_the_mines_pt_1]
+    requirements = {}
+
+[unlocking_the_mines_pt_2]
+	requirements = {}
+
+[debug_mail]
+    subject_line = ""
+    local = """
+    [Ari],
+    What is UP.
+    """
+    npc = "valen"
+    can_repeat = true

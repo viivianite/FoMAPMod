@@ -1,0 +1,23 @@
+{
+    "name": "Archipelago Randomizer",
+    "author": "viivianite",
+    "version": "0.0.1-alpha",
+    "description": "Archipelago randomizer",
+    "minInstallerVersion": "0.15.0",
+    "manifestVersion": 1,
+    "requires_hooks": [
+        "local.get",
+        "save.game_loaded",
+        "game.room_transition_post",
+        "game.clock_tick",
+        "museum.donate_item",
+        "player.died",
+        "player.pass_out",
+        "quest.complete",
+        "renown.level_gained",
+        "renown.rank_gained",
+        "dungeon.floor_enter",
+        "player.skill_leveled",
+        "player.acquire_perk",
+        "ui.spawn_tutorial_guard" ]
+}

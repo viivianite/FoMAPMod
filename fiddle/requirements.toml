@@ -1,0 +1,11 @@
+[use_dragon_shrine]
+    seen_cutscene = "farm_introduction"
+
+[use_dragon_shrine.met_npc]
+    MOMIaction = "remove"
+
+[collect_essence]
+    seen_cutscene = "farm_introduction"
+
+[repaired_dragon_shrine]
+    seen_cutscene = "farm_introduction"

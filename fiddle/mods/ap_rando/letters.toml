@@ -1,0 +1,8 @@
+[debug_mail]
+    subject_line = ""
+    local = """
+    [Ari],
+    What is UP.
+    """
+    npc = "valen"
+    can_repeat = true
