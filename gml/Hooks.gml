@@ -3,8 +3,13 @@
 #macro AP_RANDO_DEBUG_MSG_KEY "mods/ap_rando/notifications/debug_msg"
 #macro AP_RANDO_ITEM_KEY "mods/ap_rando/notifications/item_received"
 #macro AP_RANDO_MODIFY_GOLD_KEY "mods/ap_rando/notifications/modify_gold"
+#macro AP_RANDO_RENOWN_KEY "mods/ap_rando/notifications/modify_renown"
+#macro AP_RANDO_PERK_KEY "mods/ap_rando/notifications/acquire_perk"
+#macro AP_RANDO_SPELL_KEY "mods/ap_rando/notifications/learn_spell"
+#macro AP_RANDO_HORSE_KEY "mods/ap_rando/notifications/horse_statue"
 #macro AP_RANDO_MAIL_KEY "mods/ap_rando/letters/"
-#macro AP_RANDO_DEFAULT_BUTTON "DEL"
+#macro AP_RANDO_RENOWN_LVL_KEY "mods/ap_rando/notifications/renown_level_gained"
+#macro AP_RANDO_RENOWN_RANK_KEY "mods/ap_rando/notifications/renown_rank_gained"
 #macro AP_RANDO_NAMESPACE "Archipelago Randomizer"
 #macro AP_RANDO_VERSION "0.0.1-alpha"
 #macro AP_RANDO_CONNECTED_KEY "mods/ap_rando/notifications/connected"
@@ -15,17 +20,18 @@
 function __ap_rando_runtime() {
     if (global[$ "__ap_rando"] == undefined) {
         global.__ap_rando = {
-            config:             undefined,
-            config_loaded:      false,
-            hotkey_registered:  false,
-
             session_started:    false,
             ap_connected:       false,
+            seen_connect:       false,
             seed:               undefined,
+            goal:               undefined,
+            museum_goal:        undefined,
             damagelink:         false,
             traplink:           false,
             deathlink:          false,
 
+            inventory:          {},
+            locations:          {},
             latest_sender:      undefined,
             latest_item:        undefined,
 
@@ -50,10 +56,10 @@ function __ap_rando_runtime() {
 }
 
 function ap_rando_ready() {
-    if (!__ap_rando_runtime()) return;
+    if (!__ap_rando_runtime()) return false;
     
     var _rt = __ap_rando_runtime();
-    return instance_exists(obj_ari) && _rt.ap_connected;
+    return instance_exists(obj_ari);
 }
 
 function ap_rando_on_clock_tick(_ctx) { 
@@ -61,7 +67,7 @@ function ap_rando_on_clock_tick(_ctx) {
     //  read clock state from it directly (e.g. _ctx.time_stopped)    
 
     // cheapest check to get out early
-    if (!__ap_rando_runtime()) return;
+    if (!ap_rando_ready()) return;
 
     var _rt = __ap_rando_runtime();
 
@@ -70,23 +76,22 @@ function ap_rando_on_clock_tick(_ctx) {
     if (_rt.frame_count % (FPS*3) == 0) {
         //check all conditions for connection
 
-        if (!ap_rando_ready()) {
-            // either ari doesnt exist or the runtime doesnt think we're connected
+        if (!_rt.ap_connected) {
+            // the runtime doesnt think we're connected
             // try connecting
             if(!ap_rando_check_connection()){
                 ap_rando_log_info("Could not connect, trying again in 3 seconds.")
                 return;
             }
-            
-            ap_rando_log_info("AP client connected, seed: " + string(_rt.seed));
-            create_notification(AP_RANDO_CONNECTED_KEY);
         }
 
         if (!ap_rando_check_connection()) {
             // runtime thinks we're connected, but status.json disagrees (meaning the client has disconnected)
             ap_rando_log_info("AP client disconnected");
             create_notification(AP_RANDO_DISCONNECTED_KEY);
+            ap_rando_runtime_inventory();
             _rt.ap_connected = false;
+            _rt.seen_connect = false;
             return;
         }
     }
@@ -118,32 +123,35 @@ function ap_rando_save_game_loaded(_ctx) {
     _rt.session_started = true;
     ap_rando_log_info("Successfully loaded game for AP - checking to connect...");
 
-    if(!ap_rando_check_connection()) ap_rando_log_info("AP not connected for loaded save?.")
+    if(!ap_rando_check_connection()) ap_rando_log_info("AP not connected for loaded save.")
 }
 
 // dynamically replaces text
 function ap_rando_local_get_filter(_value, _ctx) {
     // _value is resolved text, _ctx is lookup key
+
+    _rt = __ap_rando_runtime();
+
     switch(_ctx) {
         case AP_RANDO_DEBUG_MSG_KEY:
             // debug
             if(local_language() == "eng") return "Hello world!";
             break;
         case AP_RANDO_ITEM_KEY:
-            // notif on receiving items:
-            if (local_language() == "eng") {
-                var ap_sender = "viivianite"
-                var item = "an item."
-                return (ap_sender + _value + item);
-            }
-            break;
+            // notif on receiving generic items:
+            if (local_language() == "eng") return (_rt.latest_sender + _value + _rt.latest_item);
         case AP_RANDO_MODIFY_GOLD_KEY:
-            if (local_language() == "eng") {
-                var ap_sender = "viivianite";
-                return ap_sender + _value;
-            }
-            break;
-
+            if (local_language() == "eng") return _rt.latest_sender + _value;
+        case AP_RANDO_RENOWN_KEY:
+            if (local_language() == "eng") return _rt.latest_sender + _value;
+        case AP_RANDO_PERK_KEY:
+            if (local_language() == "eng") return _rt.latest_sender + _value + _rt.latest_item + " perk!";
+        case AP_RANDO_SPELL_KEY:
+            if (local_language() == "eng") return _rt.latest_sender + _value + _rt.latest_item + " spell!";
+        case AP_RANDO_RENOWN_LVL_KEY:
+            if (local_language() == "eng") return _value + string(_rt.renown_lvl) + "!";
+        case AP_RANDO_RENOWN_RANK_KEY:
+            if (local_language() == "eng") return _value + string(_rt.renown_rank) + "!";
         default:
             // returning undefined keeps game value
             return undefined;
@@ -153,6 +161,14 @@ function ap_rando_local_get_filter(_value, _ctx) {
 function ap_rando_on_donate_item(_ctx) {
     // _ctx is { item_id }
     ap_rando_log_info("donated "+ item_id_to_string(_ctx.item_id) + " to museum, sending check");
+
+    // convert item_id to ap_loc_id to pass off
+    var ap_loc_id = struct_get(global.location_ref, item_id_to_string(_ctx.item_id));
+    if (ap_loc_id < 0) {
+        ap_rando_log_info("item_id not in location_reference");
+        return;
+    }
+    else ap_rando_send_location(ap_loc_id);
 }
 
 function ap_rando_player_died(_ctx) {
@@ -183,10 +199,10 @@ function ap_rando_level_gained(_ctx) {
     if (!ap_rando_ready()) return;
 
     var _rt = __ap_rando_runtime();
-    if (_rt.renown_lvl < _ctx.level) {
-        _rt.renown_lvl = _ctx.level;
-        ap_rando_log_info("hit new renown level: " + string(_ctx.level));
-        
+    if (_rt.renown_lvl < _ctx.new_level) {
+        _rt.renown_lvl = _ctx.new_level;
+        ap_rando_log_info("hit new renown level: " + string(_ctx.new_level));
+        create_notification(AP_RANDO_RENOWN_LVL_KEY);
     }
 }
 
@@ -199,10 +215,10 @@ function ap_rando_renown_rank_gained(_ctx) {
     if (!ap_rando_ready()) return;
 
     var _rt = __ap_rando_runtime();
-    if (_rt.renown_rank < _ctx.rank) {
-        _rt.renown_rank = _ctx.rank;
-        ap_rando_log_info("hit new renown rank: " + string(_ctx.rank));
-        
+    if (_rt.renown_rank < _ctx.new_rank) {
+        _rt.renown_rank = _ctx.new_rank;
+        ap_rando_log_info("hit new renown rank: " + string(_ctx.new_rank));
+        create_notification(AP_RANDO_RENOWN_RANK_KEY);
     }
 }
 
@@ -219,13 +235,10 @@ function ap_rando_skill_leveled(_ctx) {
     // need to access runtime var, ensure it exists
     if (!__ap_rando_runtime()) return;
 
-    // does ari exist?
-    if (!ap_rando_ready()) return;
-
     var _rt = __ap_rando_runtime();
     
     // all skill levels start at 2, we adjust for that
-    var skill_lvl = _ctx.level - 1 ;
+    var skill_lvl = _ctx.new_level - 1 ;
     
     // figure out which skill is being accessed - if its not the same as our information, send that check
     switch (_ctx.skill) {
@@ -290,9 +303,8 @@ function ap_rando_skill_leveled(_ctx) {
 
 function ap_rando_acquire_perk(_ctx) {
     // _ctx is perk obj
-    ap_rando_log_info("acquired perk: " + perk_to_string(_ctx.perk));
-    create_notification(AP_RANDO_ITEM_KEY);
 }
+
 
 function ap_rando_tutorial_guard(_ctx) {
     // _ctx is tutorial obj
