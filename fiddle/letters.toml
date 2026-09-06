@@ -5,10 +5,1674 @@
 	requirements = {}
 
 [debug_mail]
-    subject_line = ""
+    subject_line = "Debug mail"
     local = """
-    [Ari],
-    What is UP.
-    """
+        [Ari],
+        What is UP.
+        """
     npc = "valen"
     can_repeat = true
+
+[seed_sunflower]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_sunflower", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_basil]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_basil", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_broccoli]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_broccoli", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_cabbage]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_cabbage", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_carrot]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_carrot", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_cauliflower]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_cauliflower", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_catmint]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_catmint", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_celosia]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_celosia", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_chickpea]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_chickpea", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_chili_pepper]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_chili_pepper", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_chrysanthemum]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_chrysanthemum", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_corn]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_corn", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_cranberry]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_cranberry", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_cucumber]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_cucumber", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_daffodil]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_daffodil", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_daisy]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_daisy", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_dill]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_dill", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_cosmos]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_cosmos", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_iris]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_iris", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_lilac]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_lilac", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_marigold]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_marigold", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_night_queen]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_night_queen", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_oregano]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_oregano", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_peas]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_peas", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_potato]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_potato", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_pumpkin]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_pumpkin", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_sage]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_sage", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_snowdrop_anemone]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_snowdrop_anemone", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_strawberry]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_strawberry", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_sweet_potato]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_sweet_potato", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_thyme]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_thyme", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_tomato]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_tomato", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_tulip]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_tulip", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_turnip]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_turnip", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_watermelon]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_watermelon", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_sugar_cane]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_sugar_cane", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_tea]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_tea", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_garlic]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_garlic", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_heather]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_heather", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_moon_fruit]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_moon_fruit", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_onion]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_onion", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_rice]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_rice", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_rosemary]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_rosemary", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_viola]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_viola", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_wheat]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_wheat", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_beet]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_beet", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_burdock_root]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_burdock_root", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_daikon_radish]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_daikon_radish", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_frost_lily]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_frost_lily", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_jasmine]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_jasmine", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_poinsettia]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_poinsettia", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_snapdragon]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_snapdragon", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_snow_peas]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_snow_peas", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_temple_flower]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_temple_flower", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[seed_mystery_bag]
+    subject_line = "Archipelago Seeds"
+    local = """[Ari],
+
+Someone dropped off some mystery seeds for me to take a look at.
+
+After doing some research, I think your farm has the ideal growth conditions, so I'm sending these to you. Let me know if you need anything!"""
+    items = [ { item_name = "seed_mystery_bag", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[mana_potion]
+    subject_line = "Syrups"
+    local = """[Ari],
+
+There was an order from "an Archipelago benefactor" made to your farm. They signed off on it already, so I've gone ahead and left you the package."""
+    items = [ { item_name = "mana_potion", count = 1 } ]
+    npc = "balor"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[fairy_syrup]
+    subject_line = "Syrups"
+    local = """Hello [Ari],
+
+I was told you were working hard to complete your goal.
+
+Balor dropped off an unusually large shipment of Syrups from "Archipelago" the other day, and mentioned that the supplier specifically wanted you to have some."""
+    items = [ { item_name = "fairy_syrup", count = 1 } ]
+    npc = "valen"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[heal_syrup]
+    subject_line = "Syrups"
+    local = """Hello [Ari],
+
+I was told you were working hard to complete your goal.
+
+Balor dropped off an unusually large shipment of Syrups from "Archipelago" the other day, and mentioned that the supplier specifically wanted you to have some."""
+    items = [ { item_name = "heal_syrup", count = 1 } ]
+    npc = "valen"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[restorative_syrup]
+    subject_line = "Syrups"
+    local = """Hello [Ari],
+
+I was told you were working hard to complete your goal.
+
+Balor dropped off an unusually large shipment of Syrups from "Archipelago" the other day, and mentioned that the supplier specifically wanted you to have some."""
+    items = [ { item_name = "restorative_syrup", count = 1 } ]
+    npc = "valen"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[speedy_syrup]
+    subject_line = "Syrups"
+    local = """Hello [Ari],
+
+I was told you were working hard to complete your goal.
+
+Balor dropped off an unusually large shipment of Syrups from "Archipelago" the other day, and mentioned that the supplier specifically wanted you to have some."""
+    items = [ { item_name = "speedy_syrup", count = 1 } ]
+    npc = "valen"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[stamina_syrup]
+    subject_line = "Syrups"
+    local = """Hello [Ari],
+
+I was told you were working hard to complete your goal.
+
+Balor dropped off an unusually large shipment of Syrups from "Archipelago" the other day, and mentioned that the supplier specifically wanted you to have some."""
+    items = [ { item_name = "stamina_syrup", count = 1 } ]
+    npc = "valen"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[stamina_up]
+    subject_line = "Max Stats Up"
+    local = """Your Archipelago teammate has found a potion to increase your maximum stamina!"""
+    items = [ { item_name = "stamina_up", count = 1 } ]
+    npc = "adeline"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[heart_crystal]
+    subject_line = "Max Stats Up"
+    local = """[Ari],
+
+Someone came into the bathhouse the other day and left this by the towel racks. They never came back to claim it, but I'm curious as to its properties, so I've decided you can be my test subject and try it.
+
+Oh ho ho ho!"""
+    items = [ { item_name = "heart_crystal", count = 1 } ]
+    npc = "juniper"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[essence_stone_giant]
+    subject_line = "Essence Stones"
+    local = """[Ari],
+
+Someone came into the bathhouse the other day and left this by the towel racks. They never came back to claim it, but I'm curious as to its properties, so I've decided you can be my test subject and try it.
+
+Oh ho ho ho!"""
+    items = [ { item_name = "essence_stone_giant", count = 1 } ]
+    npc = "juniper"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[essence_stone_large]
+    subject_line = "Essence Stones"
+    local = """[Ari],
+
+Someone came into the bathhouse the other day and left this by the towel racks. They never came back to claim it, but I'm curious as to its properties, so I've decided you can be my test subject and try it.
+
+Oh ho ho ho!"""
+    items = [ { item_name = "essence_stone_large", count = 1 } ]
+    npc = "juniper"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[essence_stone_medium]
+    subject_line = "Essence Stones"
+    local = """[Ari],
+
+Someone came into the bathhouse the other day and left this by the towel racks. They never came back to claim it, but I'm curious as to its properties, so I've decided you can be my test subject and try it.
+
+Oh ho ho ho!"""
+    items = [ { item_name = "essence_stone_medium", count = 1 } ]
+    npc = "juniper"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[essence_stone_small]
+    subject_line = "Essence Stones"
+    local = """[Ari],
+
+Someone came into the bathhouse the other day and left this by the towel racks. They never came back to claim it, but I'm curious as to its properties, so I've decided you can be my test subject and try it.
+
+Oh ho ho ho!"""
+    items = [ { item_name = "essence_stone_small", count = 1 } ]
+    npc = "juniper"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[essence_stone_tiny]
+    subject_line = "Essence Stones"
+    local = """[Ari],
+
+Someone came into the bathhouse the other day and left this by the towel racks. They never came back to claim it, but I'm curious as to its properties, so I've decided you can be my test subject and try it.
+
+Oh ho ho ho!"""
+    items = [ { item_name = "essence_stone_tiny", count = 1 } ]
+    npc = "juniper"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[fast_food]
+    subject_line = "Fast Food"
+    local = """[Ari],
+
+It looks like a colleague of yours has generously sponsored you for one of my wares! I sure hope you'll pass on the favor."""
+    items = [ { item_name = "fast_food", count = 1 } ]
+    npc = "wheedle"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[poison_snake_oil]
+    subject_line = "Snake Oils"
+    local = """[Ari],
+
+It looks like a colleague of yours has generously sponsored you for one of my wares! I sure hope you'll pass on the favor."""
+    items = [ { item_name = "poison_snake_oil", count = 1 } ]
+    npc = "wheedle"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[fire_snake_oil]
+    subject_line = "Snake Oils"
+    local = """[Ari],
+
+It looks like a colleague of yours has generously sponsored you for one of my wares! I sure hope you'll pass on the favor."""
+    items = [ { item_name = "fire_snake_oil", count = 1 } ]
+    npc = "wheedle"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[ice_snake_oil]
+    subject_line = "Snake Oils"
+    local = """[Ari],
+
+It looks like a colleague of yours has generously sponsored you for one of my wares! I sure hope you'll pass on the favor."""
+    items = [ { item_name = "ice_snake_oil", count = 1 } ]
+    npc = "wheedle"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[coffee]
+    subject_line = "Coffee"
+    local = """Your Archipelago teammate has found Coffee for you!"""
+    items = [ { item_name = "coffee", count = 1 } ]
+    npc = "merri"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[large_wood_bundle]
+    subject_line = "Resource Packs"
+    local = """[Ari],
+
+Someone ordered some resources for you. Hope you find it useful in your projects!"""
+    items = [ { item_name = "large_wood_bundle", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[small_wood_bundle]
+    subject_line = "Resource Packs"
+    local = """[Ari],
+
+Someone ordered some resources for you. Hope you find it useful in your projects!"""
+    items = [ { item_name = "small_wood_bundle", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[large_stone_bundle]
+    subject_line = "Resource Packs"
+    local = """[Ari],
+
+Someone ordered some resources for you. Hope you find it useful in your projects!"""
+    items = [ { item_name = "large_stone_bundle", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[small_stone_bundle]
+    subject_line = "Resource Packs"
+    local = """[Ari],
+
+Someone ordered some resources for you. Hope you find it useful in your projects!"""
+    items = [ { item_name = "small_stone_bundle", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[big_bell]
+    subject_line = "Farm Buildings"
+    local = """Your Archipelago teammate has found a Big Bell for you!"""
+    items = [ { item_name = "big_bell", count = 1 } ]
+    npc = "hayden"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[ocarina_sprite_statue]
+    subject_line = "Farm Buildings"
+    local = """Your Archipelago teammate has found an Animal Sprite Statue for you!"""
+    items = [ { item_name = "ocarina_sprite_statue", count = 1 } ]
+    npc = "balor"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[water_sprite_statue]
+    subject_line = "Farm Buildings"
+    local = """Your Archipelago teammate has found a Water Sprite Statue for you!"""
+    items = [ { item_name = "water_sprite_statue_v1", count = 1 } ]
+    npc = "balor"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+[woodcrafting_station]
+    subject_line = "Farm Buildings"
+    local = """Your Archipelago teammate has found a Crafting Station for you!"""
+    items = [ { item_name = "woodcrafting_station", count = 1 } ]
+    npc = "landen"
+    can_repeat = true
+    requirements = { completed_quest  = "complete_the_museum" }
+
+    [axe_copper]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I've discovered another Axe in storage! Seeing as you would get more use out of it than myself, I've left it here for you."""
+    items = [ { item_name = "axe_copper", count = 1 } ]
+    npc = "eiland"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[axe_iron]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I've discovered another Axe in storage! Seeing as you would get more use out of it than myself, I've left it here for you."""
+    items = [ { item_name = "axe_iron", count = 1 } ]
+    npc = "eiland"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[axe_silver]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I've discovered another Axe in storage! Seeing as you would get more use out of it than myself, I've left it here for you."""
+    items = [ { item_name = "axe_silver", count = 1 } ]
+    npc = "eiland"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[axe_gold]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I've discovered another Axe in storage! Seeing as you would get more use out of it than myself, I've left it here for you."""
+    items = [ { item_name = "axe_gold", count = 1 } ]
+    npc = "eiland"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[axe_mistril]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I've discovered another Axe in storage! Seeing as you would get more use out of it than myself, I've left it here for you."""
+    items = [ { item_name = "axe_mistril", count = 1 } ]
+    npc = "eiland"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[hoe_copper]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Hoe for you!"""
+    items = [ { item_name = "hoe_copper", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[hoe_iron]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Hoe for you!"""
+    items = [ { item_name = "hoe_iron", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[hoe_silver]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Hoe for you!"""
+    items = [ { item_name = "hoe_silver", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[hoe_gold]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Hoe for you!"""
+    items = [ { item_name = "hoe_gold", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[hoe_mistril]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Hoe for you!"""
+    items = [ { item_name = "hoe_mistril", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[net_copper]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Net for you!"""
+    items = [ { item_name = "net_copper", count = 1 } ]
+    npc = "luc"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[net_iron]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Net for you!"""
+    items = [ { item_name = "net_iron", count = 1 } ]
+    npc = "luc"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[net_silver]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Net for you!"""
+    items = [ { item_name = "net_silver", count = 1 } ]
+    npc = "luc"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[net_gold]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Net for you!"""
+    items = [ { item_name = "net_gold", count = 1 } ]
+    npc = "luc"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[net_mistril]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Net for you!"""
+    items = [ { item_name = "net_mistril", count = 1 } ]
+    npc = "luc"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[watering_can_copper]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Watering Can for you!"""
+    items = [ { item_name = "watering_can_copper", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[watering_can_iron]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Watering Can for you!"""
+    items = [ { item_name = "watering_can_iron", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[watering_can_silver]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Watering Can for you!"""
+    items = [ { item_name = "watering_can_silver", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[watering_can_gold]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Watering Can for you!"""
+    items = [ { item_name = "watering_can_gold", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[watering_can_mistril]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Watering Can for you!"""
+    items = [ { item_name = "watering_can_mistril", count = 1 } ]
+    npc = "celine"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[pick_axe_copper]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Pickaxe for you!"""
+    items = [ { item_name = "pick_axe_copper", count = 1 } ]
+    npc = "olric"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[pick_axe_iron]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Pickaxe for you!"""
+    items = [ { item_name = "pick_axe_iron", count = 1 } ]
+    npc = "olric"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[pick_axe_silver]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Pickaxe for you!"""
+    items = [ { item_name = "pick_axe_silver", count = 1 } ]
+    npc = "olric"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[pick_axe_gold]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Pickaxe for you!"""
+    items = [ { item_name = "pick_axe_gold", count = 1 } ]
+    npc = "olric"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[pick_axe_mistril]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Pickaxe for you!"""
+    items = [ { item_name = "pick_axe_mistril", count = 1 } ]
+    npc = "olric"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[sword_copper]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I found this spare sword in the Dragonguard's armory, with a note attached in your name!
+
+Is "Archipelago" the name of one of the towns you saved?"""
+    items = [ { item_name = "sword_copper", count = 1 } ]
+    npc = "dell"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[sword_iron]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I found this spare sword in the Dragonguard's armory, with a note attached in your name!
+
+Is "Archipelago" the name of one of the towns you saved?"""
+    items = [ { item_name = "sword_iron", count = 1 } ]
+    npc = "dell"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[sword_silver]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I found this spare sword in the Dragonguard's armory, with a note attached in your name!
+
+Is "Archipelago" the name of one of the towns you saved?"""
+    items = [ { item_name = "sword_silver", count = 1 } ]
+    npc = "dell"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[sword_gold]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I found this spare sword in the Dragonguard's armory, with a note attached in your name!
+
+Is "Archipelago" the name of one of the towns you saved?"""
+    items = [ { item_name = "sword_gold", count = 1 } ]
+    npc = "dell"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[sword_mistril]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+I found this spare sword in the Dragonguard's armory, with a note attached in your name!
+
+Is "Archipelago" the name of one of the towns you saved?"""
+    items = [ { item_name = "sword_mistril", count = 1 } ]
+    npc = "dell"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[sword_dragon_forged]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Sword for you!"""
+    items = [ { item_name = "sword_dragon_forged", count = 1 } ]
+    npc = "seridia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[fishing_rod_copper]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Fishing Rod for you!"""
+    items = [ { item_name = "fishing_rod_copper", count = 1 } ]
+    npc = "terithia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[fishing_rod_iron]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Fishing Rod for you!"""
+    items = [ { item_name = "fishing_rod_iron", count = 1 } ]
+    npc = "terithia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[fishing_rod_silver]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Fishing Rod for you!"""
+    items = [ { item_name = "fishing_rod_silver", count = 1 } ]
+    npc = "terithia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[fishing_rod_gold]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Fishing Rod for you!"""
+    items = [ { item_name = "fishing_rod_gold", count = 1 } ]
+    npc = "terithia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[fishing_rod_mistril]
+    subject_line = "Tool Upgrades"
+    local = """Your Archipelago teammate has found a Progressive Fishing Rod for you!"""
+    items = [ { item_name = "fishing_rod_mistril", count = 1 } ]
+    npc = "terithia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[shovel_copper]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+Would you look at that! Seems like your Archipelago teammate dug up this Progressive Shovel for you!"""
+    items = [ { item_name = "shovel_copper", count = 1 } ]
+    npc = "holt"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[shovel_iron]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+Would you look at that! Seems like your Archipelago teammate dug up this Progressive Shovel for you!"""
+    items = [ { item_name = "shovel_iron", count = 1 } ]
+    npc = "holt"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[shovel_silver]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+Would you look at that! Seems like your Archipelago teammate dug up this Progressive Shovel for you!"""
+    items = [ { item_name = "shovel_silver", count = 1 } ]
+    npc = "holt"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[shovel_gold]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+Would you look at that! Seems like your Archipelago teammate dug up this Progressive Shovel for you!"""
+    items = [ { item_name = "shovel_gold", count = 1 } ]
+    npc = "holt"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[shovel_mistril]
+    subject_line = "Tool Upgrades"
+    local = """[Ari],
+
+Would you look at that! Seems like your Archipelago teammate dug up this Progressive Shovel for you!"""
+    items = [ { item_name = "shovel_mistril", count = 1 } ]
+    npc = "holt"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[basic_pouch]
+    subject_line = "Bag Upgrades"
+    local = """Your Archipelago teammate has found an Inventory Upgrade for you!"""
+    items = [ { item_name = "basic_pouch", count = 1 } ]
+    npc = "nora"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[large_pouch]
+    subject_line = "Bag Upgrades"
+    local = """Your Archipelago teammate has found an Inventory Upgrade for you!"""
+    items = [ { item_name = "large_pouch", count = 1 } ]
+    npc = "nora"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[copper_helmet]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "copper_helmet", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[iron_helmet]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "iron_helmet", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[silver_helmet]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "silver_helmet", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[gold_helmet]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "gold_helmet", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[mistril_helmet]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "mistril_helmet", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[dragonsworn_helmet_equipment]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "dragonsworn_helmet_equipment", count = 1 } ]
+    npc = "seridia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[copper_armor]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "copper_armor", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[iron_armor]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "iron_armor", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[silver_armor]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "silver_armor", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[gold_armor]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "gold_armor", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[mistril_armor]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "mistril_armor", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[dragonsworn_armor_equipment]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "dragonsworn_armor_equipment", count = 1 } ]
+    npc = "seridia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[copper_legplates]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "copper_legplates", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[iron_legplates]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "iron_legplates", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[silver_legplates]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "silver_legplates", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[gold_legplates]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "gold_legplates", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[mistril_legplates]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "mistril_legplates", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[dragonsworn_legplates_equipment]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "dragonsworn_legplates_equipment", count = 1 } ]
+    npc = "seridia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[copper_greaves]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "copper_greaves", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[iron_greaves]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "iron_greaves", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[silver_greaves]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "silver_greaves", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[gold_greaves]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "gold_greaves", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[mistril_boots]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "mistril_boots", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[dragonsworn_greaves_equipment]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "dragonsworn_greaves_equipment", count = 1 } ]
+    npc = "seridia"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[copper_ring]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "copper_ring", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[iron_ring]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "iron_ring", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[silver_ring]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "silver_ring", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[gold_ring]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "gold_ring", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[mistril_ring]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "mistril_ring", count = 1 } ]
+    npc = "march"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[heros_ring]
+    subject_line = "Armor Upgrades"
+    local = """Your Archipelago teammate has found Progressive Armor for you!"""
+    items = [ { item_name = "heros_ring", count = 1 } ]
+    npc = "adeline"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[barn_0]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "small_barn_red_blueprint", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[barn_1]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "medium_barn_red_blueprint", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[barn_2]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "large_barn_red_blueprint", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[coop_0]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "small_coop_red_blueprint", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[coop_1]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "medium_coop_red_blueprint", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[coop_2]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "large_coop_red_blueprint", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[greenhouse_0]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "small_greenhouse_white_blueprint", count = 1 } ]
+    npc = "ryis"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[greenhouse_1]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "large_greenhouse_white_blueprint", count = 1 } ]
+    npc = "taliferro"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[kitchen_0]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "beginner_kitchen", count = 1 } ]
+    npc = "taliferro"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[kitchen_1]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "cozy_kitchen", count = 1 } ]
+    npc = "taliferro"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
+
+[kitchen_2]
+    subject_line = "Farm Buildings"
+    local = """[Ari],
+
+I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
+    items = [ { item_name = "adept_kitchen", count = 1 } ]
+    npc = "taliferro"
+    can_repeat = true
+    requirements = { completed_quest = "complete_the_museum" }
