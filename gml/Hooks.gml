@@ -97,7 +97,9 @@ function ap_rando_on_clock_tick(_ctx) {
     }
 
     //now that we're sure we're connected, check items.json every second to see if we have anything new
-    if (_rt.frame_count % FPS == 0 && ap_rando_check_connection() && ap_rando_ready()) ap_rando_check_items(AP_RANDO_MOD_PATH +"seeds/" + _rt.seed + "/items.json");
+    if (_rt.frame_count % FPS == 0 && ap_rando_check_connection() && ap_rando_ready()) {
+        ap_rando_check_items(AP_RANDO_MOD_PATH +"seeds/" + _rt.seed + "/items.json");
+    }
 }
 
 function ap_rando_room_transition_post(_ctx) {
@@ -163,7 +165,7 @@ function ap_rando_on_donate_item(_ctx) {
     ap_rando_log_info("donated "+ item_id_to_string(_ctx.item_id) + " to museum, sending check");
 
     // convert item_id to ap_loc_id to pass off
-    var ap_loc_id = struct_get(global.location_ref, item_id_to_string(_ctx.item_id));
+    var ap_loc_id = struct_get(global.museum_ref, item_id_to_string(_ctx.item_id));
     if (ap_loc_id < 0) {
         ap_rando_log_info("item_id not in location_reference");
         return;
@@ -186,6 +188,14 @@ function ap_rando_pass_out(_ctx) {
 function ap_rando_quest_complete(_ctx) {
     // _ctx is { ActiveQuest as quest }
     ap_rando_log_info("completed quest: " + string(_ctx.quest.quest_name));
+
+    // convert item_id to ap_loc_id to pass off
+    var ap_loc_id = struct_get(global.quest_ref, string(_ctx.quest.quest_name));
+    if (ap_loc_id < 0) {
+        ap_rando_log_info("quest_name not in quest_ref");
+        return;
+    }
+    else ap_rando_send_location(ap_loc_id);
     
 }
 
@@ -301,8 +311,18 @@ function ap_rando_skill_leveled(_ctx) {
     }
 }
 
-function ap_rando_acquire_perk(_ctx) {
+function ap_rando_purchase_perk(_ctx) {
     // _ctx is perk obj
+
+    ap_rando_log_info("bought "+ perk_to_string(_ctx.perk) + " perk, sending check");
+
+    // convert item_id to ap_loc_id to pass off
+    var ap_loc_id = struct_get(global.perk_ref, perk_to_string(_ctx.perk));
+    if (ap_loc_id < 0) {
+        ap_rando_log_info("perk_id not in perk_reference");
+        return;
+    }
+    else ap_rando_send_location(ap_loc_id);
 }
 
 
@@ -333,7 +353,7 @@ function ap_rando_register_callbacks() {
     mmapi_on("renown.rank_gained", ap_rando_renown_rank_gained);
     mmapi_on("dungeon.floor_enter", ap_rando_dungeon_floor_enter);
     mmapi_on("player.skill_leveled", ap_rando_skill_leveled);
-    mmapi_on("player.acquire_perk", ap_rando_acquire_perk);
+    mmapi_on("player.purchase_perk", ap_rando_purchase_perk);
     
     // FILTER registration
     mmapi_filter("local.get", ap_rando_local_get_filter);

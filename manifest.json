@@ -18,6 +18,6 @@
         "renown.rank_gained",
         "dungeon.floor_enter",
         "player.skill_leveled",
-        "player.acquire_perk",
+        "player.purchase_perk",
         "ui.spawn_tutorial_guard" ]
 }
