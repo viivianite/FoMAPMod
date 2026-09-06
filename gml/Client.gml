@@ -65,7 +65,8 @@ function ap_rando_check_items(json_path) {
         }
 
     }
-
+    ap_rando_log_info(string(ARI.inbox.contents));
+    ap_rando_log_info(string(LETTERS));
     ap_rando_update_inventory(_rt.inventory);
 }
 
@@ -79,14 +80,14 @@ function ap_rando_send_item(item, amt){
 
     if (string_starts_with(item, "season")) {
         // TODO: implement season logic
-        ap_rando_log_info("season sent here");
+        ap_rando_log_info("SEASON");
     }
 
     else if (string_starts_with(item, "perk")) {
         // perk
         var perk_local = string_trim(item, ["perk_"]);
         ARI.acquire_perk(string_to_perk(perk_local));
-        ap_rando_log_info("acquired perk: " + perk_local);
+        ap_rando_log_info("PERK: " + perk_local);
         _rt.latest_item = local_get("perks/" + perk_local + "/name")
         create_notification(AP_RANDO_PERK_KEY);
     }
@@ -95,24 +96,27 @@ function ap_rando_send_item(item, amt){
         // spell
         var spell_local = string_trim(item, ["spell_"]);
         ARI.learn_spell(string_to_spell(spell_local));
-        ap_rando_log_info("learned spell: " + spell_local);
+        ap_rando_log_info("SPELL: " + spell_local);
         _rt.latest_item = local_get("spells/" + spell_local + "/name")
         create_notification(AP_RANDO_SPELL_KEY);
     }
 
     else if (item == "tesserae") {
+        ap_rando_log_info("TESSERAE");
         // tesserae
         ARI.modify_gold(500 * amt);
         create_notification(AP_RANDO_MODIFY_GOLD_KEY);
     }
 
     else if (item == "renown_increase") {
+        ap_rando_log_info("RENOWN");
         // renown
         ARI.modify_renown(60 * amt);
         create_notification(AP_RANDO_RENOWN_KEY);
     }
 
     else if (item == "horse_statue") {
+        ap_rando_log_info("HORSE STATUE");
         fulfill_requirement(string_to_requirement("repaired_horse_statue"), true);
         create_notification(AP_RANDO_HORSE_KEY);
     }
@@ -120,6 +124,7 @@ function ap_rando_send_item(item, amt){
     else if (string_starts_with(item, "quest")) {
         // quest
         var quest_local = string_trim(item, ["quest_"]);
+        ap_rando_log_info("QUEST: " + quest_local);
         ARI.inbox.push_mail(quest_local);
     }
 
@@ -129,20 +134,27 @@ function ap_rando_send_item(item, amt){
     }
 
     else {
+        ap_rando_log_info("FILLER: " + item + "("+ string(amt) +")");
         // farm items, seeds, resources, and consumables all have item_id match letters.toml key
-        ARI.inbox.push_mail(item);
+        for (var i = 0; i < amt; i++) {
+            ARI.inbox.push_mail(item);
+        }
     }
-    //check if it exists in runtime inventory and isn't 0 - if no, set to 1, if yes, update amt
-    if (!struct_exists(_rt.inventory, item) && struct_get(_rt.inventory,item) != 0) struct_set(_rt.inventory, item, amt);
+    //check if it doesnt exist in runtime inventory - if no, set to 1, if yes, update amt
+    if (!struct_exists(_rt.inventory, item) && struct_get(_rt.inventory,item) != 0) {
+        struct_set(_rt.inventory, item, amt);
+    }
     else struct_set(_rt.inventory, item, (struct_get(_rt.inventory,item) + amt));
 }
 
 function ap_rando_send_prog_item(item, amt) {
+    ap_rando_log_info("PROGRESSIVE LOGIC RUNNING -------");
+
     var _rt = __ap_rando_runtime();
     // check *which* prog item we're working with
     var item_type = string_trim(item, ["prog_"]);
-    var tools = ["axe", "hoe", "net", "can", "pick", "rod", "shovel"];
-    var combat = ["sword", "helmet", "chest", "pants", "shoes"];
+    var tools = ["axe", "hoe", "net", "watering_can", "pick_axe", "fishing_rod", "shovel"];
+    var combat = ["sword", "helmet", "armor", "legplates", "greaves"];
     var total_item_amt;
     var ind_start = 0;
     var quality_types = ["copper", "iron", "silver", "gold", "mistril", "dragonsworn"];
@@ -164,6 +176,7 @@ function ap_rando_send_prog_item(item, amt) {
         // for tools + combat, we did the legwork of figuring out where to start from in the arr
         case "axe":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("AXE: " + item_type + "_" + quality_types[i]);
                 ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
                 _rt.latest_item = "a Progressive Axe";
                 create_notification(AP_RANDO_ITEM_KEY);
@@ -171,6 +184,7 @@ function ap_rando_send_prog_item(item, amt) {
             break;
         case "hoe":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("HOE: " + item_type + "_" + quality_types[i]);
                 ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
                 _rt.latest_item = "a Progressive Hoe";
                 create_notification(AP_RANDO_ITEM_KEY);
@@ -178,27 +192,31 @@ function ap_rando_send_prog_item(item, amt) {
             break;
         case "net":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("NET: " + item_type + "_" + quality_types[i]);
                 ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
                 _rt.latest_item = "a Progressive Net";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
             break;
-        case "can":
+        case "watering_can":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("CAN: " + item_type + "_" + quality_types[i]);
                 ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
                 _rt.latest_item = "a Progressive Watering Can";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
             break;
-        case "pick":
+        case "pick_axe":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("PICKAXE: " + item_type + "_" + quality_types[i]);
                 ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
                 _rt.latest_item = "a Progressive Pickaxe";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
             break;
-        case "rod":
+        case "fishing_rod":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("ROD: " + item_type + "_" + quality_types[i]);
                 ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
                 _rt.latest_item = "a Progressive Fishing Rod";
                 create_notification(AP_RANDO_ITEM_KEY);
@@ -206,6 +224,7 @@ function ap_rando_send_prog_item(item, amt) {
             break;
         case "shovel":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("SHOVEL: " + item_type + "_" + quality_types[i]);
                 ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
                 _rt.latest_item = "a Progressive Shovel";
                 create_notification(AP_RANDO_ITEM_KEY);
@@ -218,6 +237,7 @@ function ap_rando_send_prog_item(item, amt) {
             if (struct_exists(_rt.inventory, item)) ind_start = struct_get(_rt.inventory, item);
 
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("POUCH: " + item_type + "_" + quality_types[i]);
                 ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
                 _rt.latest_item = "an Inventory Upgrade";
                 create_notification(AP_RANDO_ITEM_KEY);
@@ -225,6 +245,7 @@ function ap_rando_send_prog_item(item, amt) {
             break;
         case "sword":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("SWORD: " + item_type + "_" + quality_types[i]);
                 // sword_dragon_forged exception
                 if (i == total_item_amt) ARI.inbox.push_mail(item_type + "_dragon_forged");
                 else ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
@@ -234,6 +255,7 @@ function ap_rando_send_prog_item(item, amt) {
             break;
         case "helmet":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("HELMET: " + item_type + "_" + quality_types[i]);
                 // dragonsworn exception
                 if (i == total_item_amt) ARI.inbox.push_mail(quality_types[i]+"_"+item_type+"_equipment");
                 else ARI.inbox.push_mail(quality_types[i] + "_" + item_type);
@@ -241,8 +263,9 @@ function ap_rando_send_prog_item(item, amt) {
                 create_notification(AP_RANDO_ITEM_KEY);
             }
             break;
-        case "chest":
+        case "armor":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("ARMOR: " + quality_types[i]+"_"+item_type);
                 // dragonforged exception
                 if (i == total_item_amt) ARI.inbox.push_mail(quality_types[i]+"_"+item_type+"_equipment");
                 else ARI.inbox.push_mail(quality_types[i] + "_" + item_type);
@@ -250,8 +273,9 @@ function ap_rando_send_prog_item(item, amt) {
                 create_notification(AP_RANDO_ITEM_KEY);
             }
             break;
-        case "pants":
+        case "legplates":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("PANTS: " + quality_types[i]+"_"+item_type);
                 // dragonforged exception
                 if (i == total_item_amt) ARI.inbox.push_mail(quality_types[i]+"_"+item_type+"_equipment");
                 else ARI.inbox.push_mail(quality_types[i] + "_" + item_type);
@@ -259,9 +283,9 @@ function ap_rando_send_prog_item(item, amt) {
                 create_notification(AP_RANDO_ITEM_KEY);
             }
             break;
-        case "shoes":
-            //theyre technically greaves lol
+        case "greaves":
             for (var i = ind_start; i < ind_start + amt; i += 1) {
+                ap_rando_log_info("BOOTS: " + item_type + "_" + quality_types[i]);
                 // dragonforged exception
                 if (i == total_item_amt) ARI.inbox.push_mail(quality_types[i]+"_greaves_equipment");
                 // for whatever reason, mistril greaves are still boots lol
@@ -273,15 +297,15 @@ function ap_rando_send_prog_item(item, amt) {
             break;
 
         // since accessory is unique, we pull from the macro var
-        // also, theyre technically rings lol
-        case "wristband":
+        case "ring":
             total_item_amt = RING_AMT;
         
             //check if the item exists in _rt.inv - if true, figure out which ind to start from
             if (struct_exists(_rt.inventory, item)) ind_start = struct_get(_rt.inventory, item);
 
             for (var i = ind_start; i < ind_start + amt; i += 1) {
-                ARI.inbox.push_mail(quality_types[i] + "_ring");
+                ap_rando_log_info("RING: " + quality_types[i] + "_" + item_type);
+                ARI.inbox.push_mail(quality_types[i] + "_" + item_type);
                 _rt.latest_item = "a Progressive Accessory";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
@@ -294,7 +318,8 @@ function ap_rando_send_prog_item(item, amt) {
             if (struct_exists(_rt.inventory, item)) ind_start = struct_get(_rt.inventory, item);
 
             for (var i = ind_start; i < ind_start + amt; i += 1) {
-                ARI.inbox.push_mail(item_type + "_" + i);
+                ap_rando_log_info("BARN: " + item_type + "_" + string(i));
+                ARI.inbox.push_mail(item_type + "_" + string(i));
                 _rt.latest_item = "a Progressive Barn";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
@@ -306,7 +331,8 @@ function ap_rando_send_prog_item(item, amt) {
             if (struct_exists(_rt.inventory, item)) ind_start = struct_get(_rt.inventory, item);
 
             for (var i = ind_start; i < ind_start + amt; i += 1) {
-                ARI.inbox.push_mail(item_type + "_" + i);
+                ap_rando_log_info("COOP: " + item_type + "_" + string(i));
+                ARI.inbox.push_mail(item_type + "_" + string(i));
                 _rt.latest_item = "a Progressive Coop";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
@@ -318,7 +344,8 @@ function ap_rando_send_prog_item(item, amt) {
             if (struct_exists(_rt.inventory, item)) ind_start = struct_get(_rt.inventory, item);
 
             for (var i = ind_start; i < ind_start + amt; i += 1) {
-                ARI.inbox.push_mail(item_type + "_" + i);
+                ap_rando_log_info("GREENHOUSE: " + item_type + "_" + string(i));
+                ARI.inbox.push_mail(item_type + "_" + string(i));
                 _rt.latest_item = "a Progressive Greenhouse";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
@@ -330,7 +357,9 @@ function ap_rando_send_prog_item(item, amt) {
             if (struct_exists(_rt.inventory, item)) ind_start = struct_get(_rt.inventory, item);
 
             for (var i = ind_start; i < ind_start + amt; i += 1) {
-                ARI.inbox.push_mail(item_type + "_" + i);
+                
+                ap_rando_log_info("KITCHEN: " + item_type + "_" + string(i));
+                ARI.inbox.push_mail(item_type + "_" + string(i));
                 _rt.latest_item = "a Progressive Kitchen";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
