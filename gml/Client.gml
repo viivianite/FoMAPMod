@@ -65,8 +65,6 @@ function ap_rando_check_items(json_path) {
         }
 
     }
-    ap_rando_log_info(string(ARI.inbox.contents));
-    ap_rando_log_info(string(LETTERS));
     ap_rando_update_inventory(_rt.inventory);
 }
 
@@ -139,6 +137,12 @@ function ap_rando_send_item(item, amt){
         for (var i = 0; i < amt; i++) {
             ARI.inbox.push_mail(item);
         }
+        
+        if (item == "water_sprite_statue") var item_id = string_to_item_id("water_sprite_statue_v1");
+        else var item_id = string_to_item_id(item);
+        var item_data = ITEM_PROTOTYPES[item_id];
+        _rt.latest_item = local_get(item_data.name_key);
+        create_notification(AP_RANDO_ITEM_KEY);
     }
     //check if it doesnt exist in runtime inventory - if no, set to 1, if yes, update amt
     if (!struct_exists(_rt.inventory, item) && struct_get(_rt.inventory,item) != 0) {
@@ -158,6 +162,7 @@ function ap_rando_send_prog_item(item, amt) {
     var total_item_amt;
     var ind_start = 0;
     var quality_types = ["copper", "iron", "silver", "gold", "mistril", "dragonsworn"];
+    var pouch_types = ["basic", "large"]
 
     if (array_get_index(tools, item_type) >= 0) {
         total_item_amt = TOOL_AMT;
@@ -237,8 +242,8 @@ function ap_rando_send_prog_item(item, amt) {
             if (struct_exists(_rt.inventory, item)) ind_start = struct_get(_rt.inventory, item);
 
             for (var i = ind_start; i < ind_start + amt; i += 1) {
-                ap_rando_log_info("POUCH: " + item_type + "_" + quality_types[i]);
-                ARI.inbox.push_mail(item_type + "_" + quality_types[i]);
+                ap_rando_log_info("POUCH: " + pouch_types[i] + "_" + item_type);
+                ARI.inbox.push_mail(pouch_types[i] + "_" + item_type);
                 _rt.latest_item = "an Inventory Upgrade";
                 create_notification(AP_RANDO_ITEM_KEY);
             }
@@ -394,6 +399,11 @@ function ap_rando_check_connection() {
     var _rt = __ap_rando_runtime();
     _rt.ap_connected = connection_status.connected;
     _rt.seed = connection_status.seed_name;
+    
+    var ap_settings = try_read_json_file(AP_RANDO_MOD_PATH + "seeds/" + string(_rt.seed) + "/settings.json", undefined, false);
+    _rt.goal = ap_settings.goal;
+    _rt.museum_goal = ap_settings.museum_completion_percentage;
+
     if (ap_rando_ready() && !_rt.seen_connect) {
         create_notification(AP_RANDO_CONNECTED_KEY);
         ap_rando_log_info("AP client connected, seed: " + string(_rt.seed));
