@@ -404,6 +404,8 @@ function ap_rando_check_connection() {
     _rt.goal = ap_settings.goal;
     _rt.museum_goal = ap_settings.museum_completion_percentage;
 
+
+
     if (ap_rando_ready() && !_rt.seen_connect) {
         create_notification(AP_RANDO_CONNECTED_KEY);
         ap_rando_log_info("AP client connected, seed: " + string(_rt.seed));
@@ -450,6 +452,15 @@ function ap_rando_send_location(loc_id) {
 
     loc_json.locations = loc_arr;
     save_json_file(AP_RANDO_MOD_PATH + "seeds/" + _rt.seed + "/locations.json", loc_json);
+}
+
+function ap_rando_send_goal() {
+    var connection_status = try_read_json_file(AP_RANDO_MOD_PATH + "seeds/status.json", undefined, false);
+
+    if (!connection_status) return false;
+    if (!connection_status.connected) return false;
+    connection_status.goal = true;
+    save_json_file(AP_RANDO_MOD_PATH + "seeds/status.json", connection_status);
 }
 
 function string_starts_with(str, substr) {
