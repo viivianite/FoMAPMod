@@ -205,7 +205,7 @@ global.item_reference = {
     _2000: "mana_potion", 
     _2002: "tesserae", 
     _2003: "fairy_syrup", 
-    _2004: "healing_syrup", 
+    _2004: "heal_syrup", 
     _2005: "restorative_syrup", 
     _2006: "speedy_syrup", 
     _2007: "stamina_syrup", 
