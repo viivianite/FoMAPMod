@@ -1,13 +1,159 @@
 [general]
-	[[general.categories]]
-        MOMIidentify = { icon = "spr_ui_store_category_icon_tools" }
-        constant_stock = [
-            "unknown_item",
-            "unknown_item",
-            "unknown_item",
-            "unknown_item",
-            "unknown_item",
-            { item = "unknown_item", requirements = { repaired_general_store = true} },
-        ]
-        MOMIaction = "replace"
+[[general.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_tools" }
+constant_stock = [
+    "unknown_item",
+    "unknown_item",
+    "unknown_item",
+    "unknown_item",
+    "unknown_item",
+    { item = "unknown_item", requirements = { repaired_general_store = true } },
+]
+MOMIaction = "replace"
 
+[carpenter]
+[[carpenter.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_objects" }
+constant_stock = [
+    "unknown_item",
+    "unknown_item",
+    "unknown_item",
+    { item = "unknown_item", requirements = { repaired_carpenters_shop = true } },
+]
+MOMIaction = "replace"
+
+[[carpenter.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_buildings" }
+constant_stock = [
+    "unknown_item",
+    "unknown_item",
+    { item = "unknown_item", requirements = { reached_skill_level = { ranching = 20 } } },
+    { item = "unknown_item", requirements = { reached_skill_level = { ranching = 20 } } },
+    { item = "unknown_item", requirements = { reached_skill_level = { ranching = 40 } } },
+    { item = "unknown_item", requirements = { reached_skill_level = { ranching = 40 } } },
+    { item = "unknown_item", requirements = { repaired_carpenters_shop = true } },
+    { item = "unknown_item", requirements = { repaired_carpenters_shop = true } },
+    { item = "stairs", requirements = { has_upper_floor = true } },
+    { item = "ladder", requirements = { has_upper_floor = true } },
+]
+MOMIaction = "replace"
+
+[terithia]
+[[terithia.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_fishing_rod" }
+constant_stock = [
+    "unknown_item",
+    { item = "unknown_item", requirements = { reached_skill_level = { fishing = 8 } } },
+    { item = "unknown_item", requirements = { reached_skill_level = { fishing = 15 } } },
+    { item = "unknown_item", requirements = { reached_skill_level = { fishing = 20 } } },
+    { item = "unknown_item", requirements = { reached_skill_level = { fishing = 30 } } },
+    { item = "unknown_item", requirements = { reached_skill_level = { fishing = 45 } } },
+]
+MOMIaction = "replace"
+
+[[terithia.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_fish" }
+MOMIaction = "remove"
+
+[blacksmith]
+[[blacksmith.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_axe" }
+MOMIaction = "remove"
+
+[[blacksmith.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_hoe" }
+MOMIaction = "remove"
+
+[[blacksmith.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_net" }
+MOMIaction = "remove"
+
+[[blacksmith.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_pickaxe" }
+MOMIaction = "remove"
+
+[[blacksmith.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_shovel" }
+MOMIaction = "remove"
+
+[[blacksmith.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_watering_can" }
+MOMIaction = "remove"
+
+[[blacksmith.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_armor" }
+MOMIaction = "remove"
+
+[balor]
+[[balor.categories]]
+MOMIidentify = { icon = "spr_ui_stone_category_icon_materials" }
+MOMIremove = { random_stock = ["shards", "shard_mass", "clay"] }
+
+[[balor.categories]]
+MOMIidentify = { icon = "spr_ui_store_category_icon_ingredients" }
+MOMIremove = { random_stock = [
+    "turnip",
+    "potato",
+    "strawberry",
+    "cabbage",
+    "daffodil",
+    "tulip",
+    "cherry",
+    "lilac",
+    "dandelion",
+    "fennel",
+    "fiddlehead",
+    "morel_mushroom",
+    "nettle",
+    "wild_leek",
+    { item = "cucumber", requirements = { reached_date = "summer" } },
+    { item = "chili_pepper", requirements = { reached_date = "summer" } },
+    { item = "tomato", requirements = { reached_date = "summer" } },
+    { item = "corn", requirements = { reached_date = "summer" } },
+    { item = "watermelon", requirements = { reached_date = "summer" } },
+    { item = "daisy", requirements = { reached_date = "summer" } },
+    { item = "catmint", requirements = { reached_date = "summer" } },
+    { item = "cosmos", requirements = { reached_date = "summer" } },
+    { item = "sage", requirements = { reached_date = "summer" } },
+    { item = "basil", requirements = { reached_date = "summer" } },
+    { item = "thyme", requirements = { reached_date = "summer" } },
+    { item = "oregano", requirements = { reached_date = "summer" } },
+    { item = "dill", requirements = { reached_date = "summer" } },
+    { item = "iris", requirements = { reached_date = "summer" } },
+    { item = "marigold", requirements = { reached_date = "summer" } },
+    { item = "sweet_potato", requirements = { reached_date = "fall" } },
+    { item = "broccoli", requirements = { reached_date = "fall" } },
+    { item = "cranberry", requirements = { reached_date = "fall" } },
+    { item = "pumpkin", requirements = { reached_date = "fall" } },
+    { item = "celosia", requirements = { reached_date = "fall" } },
+    { item = "chrysanthemum", requirements = { reached_date = "fall" } },
+    { item = "apple", requirements = { reached_date = "fall" } },
+    { item = "onion", requirements = { repaired_general_store = true } },
+    { item = "moon_fruit", requirements = { reached_date = "fall" } },
+    { item = "rosemary", requirements = { reached_date = "fall" } },
+    { item = "garlic", requirements = { reached_date = "fall" } },
+    { item = "viola", requirements = { reached_date = "fall" } },
+    { item = "heather", requirements = { reached_date = "fall" } },
+    { item = "fog_orchid", requirements = { reached_date = "fall" } },
+    { item = "chestnut", requirements = { reached_date = "fall" } },
+    { item = "beet", requirements = { reached_date = "winter" } },
+    { item = "cauliflower", requirements = { reached_date = "winter" } },
+    { item = "snow_peas", requirements = { reached_date = "winter" } },
+    { item = "daikon_radish", requirements = { reached_date = "winter" } },
+    { item = "frost_lily", requirements = { reached_date = "winter" } },
+    { item = "poinsettia", requirements = { reached_date = "winter" } },
+    { item = "pomegranate", requirements = { reached_date = "winter" } },
+    { item = "burdock_root", requirements = { reached_date = "winter" } },
+    { item = "snapdragon", requirements = { reached_date = "winter" } },
+    { item = "jasmine", requirements = { reached_date = "winter" } },
+    { item = "crocus", requirements = { reached_date = "winter" } },
+    { item = "holly", requirements = { reached_date = "winter" } },
+    { item = "pineshroom", requirements = { reached_date = "winter" } },
+    { item = "oyster_mushroom", requirements = { reached_date = "winter" } },
+    { item = "rose_hip", requirements = { reached_date = "winter" } },
+    { item = "bell_berry", requirements = { unlocked_deep_woods = true } },
+    { item = "spirit_mushroom", requirements = { unlocked_deep_woods = true } },
+    { item = "temple_flower", requirements = { unlocked_deep_woods = true } },
+    { item = "thorn_vine", requirements = { unlocked_deep_woods = true } },
+    { item = "walnut", requirements = { unlocked_deep_woods = true } },
+] }
