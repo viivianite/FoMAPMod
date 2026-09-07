@@ -141,7 +141,7 @@ function ap_rando_local_get_filter(_value, _ctx) {
             break;
         case AP_RANDO_ITEM_KEY:
             // notif on receiving generic items:
-            if (local_language() == "eng") return (_rt.latest_sender + _value + _rt.latest_item);
+            if (local_language() == "eng") return (_rt.latest_sender + _value + _rt.latest_item + "!");
         case AP_RANDO_MODIFY_GOLD_KEY:
             if (local_language() == "eng") return _rt.latest_sender + _value;
         case AP_RANDO_RENOWN_KEY:
