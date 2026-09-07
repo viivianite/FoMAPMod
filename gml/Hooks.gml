@@ -15,7 +15,7 @@
 #macro AP_RANDO_CONNECTED_KEY "mods/ap_rando/notifications/connected"
 #macro AP_RANDO_DISCONNECTED_KEY "mods/ap_rando/notifications/disconnected"
 #macro AP_RANDO_MOD_PATH string(CONFIG_DIRECTORY) + "/mod_data/ap_rando/"
-
+#macro MUSEUM_COUNT 409
 
 function __ap_rando_runtime() {
     if (global[$ "__ap_rando"] == undefined) {
@@ -26,6 +26,7 @@ function __ap_rando_runtime() {
             seed:               undefined,
             goal:               undefined,
             museum_goal:        undefined,
+            museum_progress:    0,
             damagelink:         false,
             traplink:           false,
             deathlink:          false,
@@ -171,6 +172,23 @@ function ap_rando_on_donate_item(_ctx) {
         return;
     }
     else ap_rando_send_location(ap_loc_id);
+
+    // if goal is museum completion percentage
+    var _rt = __ap_rando_runtime();
+    if (_rt.goal == 0) {
+        var museum_progress = 0;
+        // calculate how many items have been donated to museum
+        for (var i = 0; i < array_length(MUSEUM_PROGRESS); i++) {
+            if (MUSEUM_PROGRESS[i]) museum_progress++;
+        }
+
+        _rt.museum_progress = museum_progress;
+        ap_rando_log_info("amt of items in museum: " + string(museum_progress));
+        if (_rt.museum_progress >= floor(_rt.museum_goal/100 * MUSEUM_COUNT)) {
+            ap_rando_log_info("SENDING GOAL!!!!")
+            ap_rando_send_goal();
+        }
+    }
 }
 
 function ap_rando_player_died(_ctx) {
