@@ -4,6 +4,26 @@
 [unlocking_the_mines_pt_2]
 	requirements = {}
 
+[stone_refinery]
+    [stone_refinery.requirements]
+        MOMIremove = { reached_renown_level = 50 }
+
+[upgrade_the_carpenters_shop]
+    [upgrade_the_carpenters_shop.requirements]
+        MOMIremove = { reached_renown_level = 70 }
+
+[upgrade_the_saturday_market]
+    [upgrade_the_saturday_market.requirements]
+        MOMIremove = { reached_renown_level = 60 }
+
+[upgrade_the_saturday_market_plaza]
+    [upgrade_the_saturday_market_plaza.requirements]
+        MOMIremove = { reached_renown_level = 80 }
+
+[repair_the_bell_tower]
+    [repair_the_bell_tower.requirements]
+        MOMIremove = { reached_renown_level = 90 }
+
 [debug_mail]
     subject_line = "Debug mail"
     local = """
@@ -12,6 +32,7 @@
         """
     npc = "valen"
     can_repeat = true
+    requirements = {}
 
 [seed_sunflower]
     subject_line = "Archipelago Seeds"
@@ -1643,7 +1664,7 @@ I found these extra blueprints lying around, and thought you might be interested
 
 I found these extra blueprints lying around, and thought you might be interested in them. Hope you find these useful!"""
     items = [ { item_name = "large_greenhouse_white_blueprint", count = 1 } ]
-    npc = "taliferro"
+    npc = "ryis"
     can_repeat = true
     requirements = { completed_quest = "complete_the_museum" }
 
