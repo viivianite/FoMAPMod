@@ -35,6 +35,7 @@ function __ap_rando_runtime() {
             locations:          {},
             latest_sender:      undefined,
             latest_item:        undefined,
+            perk_received:      false,
 
             renown_lvl:         0, 
             renown_rank:        0,
@@ -235,7 +236,7 @@ function ap_rando_level_gained(_ctx) {
 }
 
 function ap_rando_renown_rank_gained(_ctx) {
-    // _ctx is { rank } TODO refine seam
+    // _ctx is { rank } 
     // need to access runtime var, ensure it exists
     if (!__ap_rando_runtime()) return;
 
@@ -265,8 +266,8 @@ function ap_rando_skill_leveled(_ctx) {
 
     var _rt = __ap_rando_runtime();
     
-    // all skill levels start at 2, we adjust for that
-    var skill_lvl = _ctx.new_level - 1 ;
+    
+    var skill_lvl = _ctx.new_level;
     
     // figure out which skill is being accessed - if its not the same as our information, send that check
     switch (_ctx.skill) {
@@ -343,6 +344,18 @@ function ap_rando_purchase_perk(_ctx) {
     else ap_rando_send_location(ap_loc_id);
 }
 
+function ap_rando_perk_guard(_ctx) {
+    // _ctx is perk obj
+    if (!__ap_rando_runtime()) return undefined;
+    _rt = __ap_rando_runtime();
+    if (!_rt.perk_received) {
+        // this is if we buy it within the shrine
+        ap_rando_log_info("perk blocked: " + string(_ctx.perk));
+        return false; //vetos perk
+    }
+    _rt.perk_received = false;
+    return undefined; 
+}
 
 function ap_rando_tutorial_guard(_ctx) {
     // _ctx is tutorial obj
@@ -378,6 +391,7 @@ function ap_rando_register_callbacks() {
 
     // GUARD registration
     mmapi_guard("ui.spawn_tutorial_guard", ap_rando_tutorial_guard);
+    mmapi_guard("player.acquire_perk_guard", ap_rando_perk_guard);
 
     _rt.registered_hooks = ["save.game_loaded", "local.get"]
 }

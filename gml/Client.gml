@@ -82,6 +82,7 @@ function ap_rando_send_item(item, amt){
     }
 
     else if (string_starts_with(item, "perk")) {
+        _rt.perk_received = true;
         // perk
         var perk_local = string_trim(item, ["perk_"]);
         ARI.acquire_perk(string_to_perk(perk_local));
@@ -446,7 +447,6 @@ function ap_rando_send_location(loc_id) {
 
     var loc_arr = loc_json.locations;
 
-    ap_rando_log_info("locations.json: " + string(loc_arr));
     ap_rando_log_info("AP location id: " + string(loc_id));
     array_push(loc_arr, loc_id);
 
