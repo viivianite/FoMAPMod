@@ -73,19 +73,16 @@ function ap_rando_send_item(item, amt){
 
     //placeholder - eventually, pass in a sender string var that will replace archipelago
     _rt.latest_sender = "Archipelago";
-    
-    ap_rando_log_info("attempting to send " + string(amt) + " of " + item);
 
     if (string_starts_with(item, "season")) {
         // TODO: implement season logic
-        ap_rando_log_info("SEASON");
     }
 
     else if (string_starts_with(item, "perk")) {
         _rt.perk_received = true;
         // perk
         var perk_local = string_trim(item, ["perk_"]);
-        ARI.acquire_perk(string_to_perk(perk_local));
+        ARI.perks[string_to_perk(perk_local)] = true;
         ap_rando_log_info("PERK: " + perk_local);
         _rt.latest_item = local_get("perks/" + perk_local + "/name")
         create_notification(AP_RANDO_PERK_KEY);
@@ -448,10 +445,23 @@ function ap_rando_send_location(loc_id) {
     var loc_arr = loc_json.locations;
 
     ap_rando_log_info("AP location id: " + string(loc_id));
-    array_push(loc_arr, loc_id);
+    if (array_get_index(loc_arr, loc_id) < 0) array_push(loc_arr, loc_id);
+    else ap_rando_log_info("location already exists in location.json?");
 
     loc_json.locations = loc_arr;
     save_json_file(AP_RANDO_MOD_PATH + "seeds/" + _rt.seed + "/locations.json", loc_json);
+}
+
+function ap_rando_load_locations() {
+    var _rt = __ap_rando_runtime();
+    var loc_json = try_read_json_file(AP_RANDO_MOD_PATH + "seeds/" + _rt.seed + "/locations.json", undefined, false);
+    if (!loc_json) {
+        ap_rando_log_info("Couldn't access locations.json, tried "+ AP_RANDO_MOD_PATH + "seeds/" + string(_rt.seed) + "/locations.json")
+        return;
+    }
+
+    var loc_arr = loc_json.locations;
+    _rt.locations = loc_arr;
 }
 
 function ap_rando_send_goal() {

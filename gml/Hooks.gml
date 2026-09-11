@@ -101,6 +101,7 @@ function ap_rando_on_clock_tick(_ctx) {
     //now that we're sure we're connected, check items.json every second to see if we have anything new
     if (_rt.frame_count % FPS == 0 && ap_rando_check_connection() && ap_rando_ready()) {
         ap_rando_check_items(AP_RANDO_MOD_PATH +"seeds/" + _rt.seed + "/items.json");
+        ap_rando_load_locations();
     }
 }
 
@@ -333,28 +334,58 @@ function ap_rando_skill_leveled(_ctx) {
 function ap_rando_purchase_perk(_ctx) {
     // _ctx is perk obj
 
-    ap_rando_log_info("bought "+ perk_to_string(_ctx.perk) + " perk, sending check");
+    _rt = __ap_rando_runtime();
+    var perk_string = perk_to_string(_ctx.perk);
+    ap_rando_log_info("bought "+ perk_string + " perk, sending check");
 
     // convert item_id to ap_loc_id to pass off
-    var ap_loc_id = struct_get(global.perk_ref, perk_to_string(_ctx.perk));
-    if (ap_loc_id < 0) {
+    var ap_loc_id = struct_get(global.perk_ref, perk_string);
+    if (ap_loc_id < 0 || ap_loc_id == undefined) {
         ap_rando_log_info("perk_id not in perk_reference");
         return;
     }
     else ap_rando_send_location(ap_loc_id);
 }
 
-function ap_rando_perk_guard(_ctx) {
-    // _ctx is perk obj
-    if (!__ap_rando_runtime()) return undefined;
+function ap_rando_acquire_perk(_ctx) {
+    // _ctx is perk object
+
     _rt = __ap_rando_runtime();
-    if (!_rt.perk_received) {
-        // this is if we buy it within the shrine
-        ap_rando_log_info("perk blocked: " + string(_ctx.perk));
-        return false; //vetos perk
+    var perk_string = perk_to_string(_ctx.perk);
+
+    // check if perk is in inventory; if not, disable perk_active
+    if (!struct_exists(_rt.inventory, "perk_" + perk_string)) {
+        ap_rando_log_info(perk_string + " acquired, but not in inventory, disabling...")
+        ARI.perks_active[_ctx.perk] = false;
     }
-    _rt.perk_received = false;
-    return undefined; 
+}
+
+function ap_rando_entry_enabled_guard(_ctx) {
+    //_ctx is perk obj from entry
+    if (!__ap_rando_runtime()) return undefined;
+    else {
+        _rt = __ap_rando_runtime();
+        var perk_string = perk_to_string(_ctx.perk);
+        var ap_inv = struct_get_names(_rt.inventory);
+        if (array_get_index(ap_inv, ("perk_" + perk_string)) < 0) {
+            return false;
+        }
+        return undefined;
+    }
+}
+
+function ap_rando_entry_acquired_guard(_ctx) {
+    //_ctx is perk obj from entry
+    if (!__ap_rando_runtime()) return undefined;
+    else {
+        _rt = __ap_rando_runtime();
+        var perk_string = perk_to_string(_ctx.perk);
+        var ap_loc_id = struct_get(global.perk_ref, perk_string);
+        if (array_get_index(_rt.locations, ap_loc_id) < 0) {
+            return false;
+        }
+        return undefined;
+    }
 }
 
 function ap_rando_tutorial_guard(_ctx) {
@@ -385,13 +416,15 @@ function ap_rando_register_callbacks() {
     mmapi_on("dungeon.floor_enter", ap_rando_dungeon_floor_enter);
     mmapi_on("player.skill_leveled", ap_rando_skill_leveled);
     mmapi_on("player.purchase_perk", ap_rando_purchase_perk);
+    mmapi_on("player.acquire_perk", ap_rando_acquire_perk);
     
     // FILTER registration
     mmapi_filter("local.get", ap_rando_local_get_filter);
 
     // GUARD registration
     mmapi_guard("ui.spawn_tutorial_guard", ap_rando_tutorial_guard);
-    mmapi_guard("player.acquire_perk_guard", ap_rando_perk_guard);
+    mmapi_guard("ui.entry_enabled_guard", ap_rando_entry_enabled_guard);
+    mmapi_guard("ui.entry_acquired_guard", ap_rando_entry_acquired_guard);
 
     _rt.registered_hooks = ["save.game_loaded", "local.get"]
 }

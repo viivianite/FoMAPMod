@@ -19,6 +19,7 @@
         "dungeon.floor_enter",
         "player.skill_leveled",
         "player.purchase_perk",
-        "player.acquire_perk_guard",
+        "player.acquire_perk",
+        "ui.entry_enabled_guard",
         "ui.spawn_tutorial_guard" ]
 }
